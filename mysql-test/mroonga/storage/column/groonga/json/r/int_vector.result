@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS logs;
+CREATE TABLE logs (
+int_vector JSON COMMENT 'flags "COLUMN_VECTOR", type "Int64"'
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+INSERT INTO logs(int_vector) VALUES('[1, 10, 100]');
+SELECT * FROM logs;
+int_vector
+[1, 10, 100]
+DROP TABLE logs;

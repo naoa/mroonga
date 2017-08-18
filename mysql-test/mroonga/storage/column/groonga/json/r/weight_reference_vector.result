@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS logs;
+DROP TABLE IF EXISTS tags;
+CREATE TABLE tags (
+name VARCHAR(255) PRIMARY KEY
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+CREATE TABLE logs (
+weight_reference_vector JSON COMMENT 'flags "COLUMN_VECTOR|WITH_WEIGHT", type "tags"'
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+INSERT INTO logs(weight_reference_vector) VALUES('{"start": 1, "restart": 10, "shutdown": 1}');
+SELECT * FROM logs;
+weight_reference_vector
+{"START": 1, "RESTART": 10, "SHUTDOWN": 1}
+DROP TABLE logs;
+DROP TABLE IF EXISTS tags;

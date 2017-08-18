@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS logs;
+CREATE TABLE logs (
+float_vector JSON COMMENT 'flags "COLUMN_VECTOR", type "Float"'
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+INSERT INTO logs(float_vector) VALUES('[1.1, 10.3, 100.2]');
+SELECT * FROM logs;
+float_vector
+[1.1, 10.3, 100.2]
+DROP TABLE logs;

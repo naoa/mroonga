@@ -673,7 +673,7 @@ private:
                             const char *index_table_name_separator);
   int drop_indexes(const char *table_name);
   bool find_column_flags(Field *field, MRN_SHARE *mrn_share, int i,
-                         grn_obj_flags *column_flags);
+                         grn_column_flags *column_flags);
   grn_obj *find_column_type(Field *field, MRN_SHARE *mrn_share, int i,
                             int error_code);
   grn_obj *find_tokenizer(KEY *key, MRN_SHARE *mrn_share, int i);
@@ -730,9 +730,9 @@ private:
   int generic_store_bulk_blob(Field *field, grn_obj *buf);
   int generic_store_bulk_geometry(Field *field, grn_obj *buf);
 #ifdef MRN_HAVE_MYSQL_TYPE_JSON
-  int generic_store_bulk_json(Field *field, grn_obj *buf);
+  int generic_store_bulk_json(Field *field, grn_obj *buf, int nth_column);
 #endif
-  int generic_store_bulk(Field *field, grn_obj *buf);
+  int generic_store_bulk(Field *field, grn_obj *buf, int nth_column);
 
   void storage_store_field_string(Field *field,
                                   const char *value, uint value_length);

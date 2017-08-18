@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS logs;
+CREATE TABLE logs (
+text_vector JSON COMMENT 'flags "COLUMN_VECTOR", type "ShortText"'
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+INSERT INTO logs(text_vector) VALUES('["start", "re\\\"start", "shutdown"]');
+SELECT * FROM logs;
+text_vector
+["start", "re\"start", "shutdown"]
+DROP TABLE logs;

@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS logs;
+CREATE TABLE logs (
+weight_vector JSON COMMENT 'flags "COLUMN_VECTOR|WITH_WEIGHT", type "ShortText"'
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+INSERT INTO logs(weight_vector) VALUES('{"start": 1, "restart": 10, "shutdown": 1}');
+SELECT * FROM logs;
+weight_vector
+{"start": 1, "restart": 10, "shutdown": 1}
+DROP TABLE logs;

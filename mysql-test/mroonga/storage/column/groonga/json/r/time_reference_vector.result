@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS logs;
+DROP TABLE IF EXISTS tags;
+CREATE TABLE tags (
+name Time PRIMARY KEY
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+CREATE TABLE logs (
+time_reference_vector JSON COMMENT 'flags "COLUMN_VECTOR", type "tags"'
+) ENGINE=Mroonga DEFAULT CHARSET=utf8mb4;
+INSERT INTO logs(time_reference_vector) VALUES('["2017-01-01 00:00:00", "2017-02-01 00:00:00"]');
+SELECT * FROM logs;
+time_reference_vector
+[1483218000, 1485896400]
+DROP TABLE logs;
+DROP TABLE tags;
